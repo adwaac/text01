@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+    <dev id="app">
+        <p>{{maac}}</p>
+        <input type="text" v-model="maac">   
+    </dev>
+
+
+
+    <script src="../vue3.js">
+
+    </script>
+
+
+
+    <script>
+        //创建Vue对象
+        Vue.createApp({
+                data(){         //data是一个箭头函数这里是简写   完整->     data:()=>{}     没了:  =  >
+                    return{
+                        maac: 'hellow world'     //maac是个数据的名称  随便起       .mount把maac给<p> ，input和v-model指令 给maac
+                    }
+                }
+            }).mount('#app')
+
+
+    </script>
+
+
+
+</body>
+</html>

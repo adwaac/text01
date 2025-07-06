@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+    <dev id="app">
+        <p>{{d}}</p>
+        <p v-html="d"></p>   
+        <p v-text="d"></p>
+    </dev>
+    <script src="../vue3.js"></script>
+    <script>
+        //v-html v-text  文本渲染指令  {{}}加载未完成时会显示出来 不好看
+        //v-html 会将字符串转换成html代码执行
+        //v-text 直接输出字符串
+        Vue.createApp({
+                data(){
+                    return{
+                        d:'<h1>awfwavnuwnu</h1>'
+                    }
+                }
+            }).mount('#app');
+
+    </script>
+
+
+
+</body>
+</html>

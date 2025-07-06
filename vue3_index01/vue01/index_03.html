@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+    <dev id="app">
+        <p>{{d}}</p>
+    </dev>
+
+
+
+    <script src="../vue3.js"></script>
+
+
+
+    <script>
+        //创建Vue对象
+        Vue.createApp({
+                data(){
+                    return{
+                        d: new Date()
+                    }
+                },
+                mounted(){                  //生命周期函数，在这里就可以保证dom(div)全部加载完成后再执行这里的代码
+                    setInterval(()=>{       //定时执行函数
+                        let d = new Date();
+                        this.d = d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()
+                    },1000)
+                }
+            }).mount('#app');
+
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<body>
+    <dev id="app">
+        <p title="标签">hello</p>
+        <p :title="d">aaaaaa</p>
+        <p v-bind:title="d">aaaaaa</p>
+    </dev>
+    <script src="../vue3.js"></script>
+    <script>
+        //v-bind 属性绑定指令  v-bind:title  简写->   :title  标签中属性有 class=" " style=" "
+        Vue.createApp({
+                data(){
+                    return{
+                        d:'00:00'
+                    }
+                },
+                mounted(){
+                    setInterval(()=>{
+                        let d=new Date()
+                        this.d=d.getMinutes()+':'+d.getSeconds()
+                    },1000)
+                }
+            }).mount('#app');
+
+    </script>
+
+
+
+</body>
+</html>

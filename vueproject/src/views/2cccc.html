@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const list = [
+            {id:3,name:"张三丰"},
+            {id:5,name:"张无忌"},
+            {id:13,name:"杨逍"},
+            {id:33,name:"殷天正"},
+            {id:12,name:"赵敏"},
+            {id:97,name:"周芷若"},
+        ]
+
+        const roleList = [{id: 1,name: '老板'}, {id: 2,name: '经理'}, {id: 3,name: '运营总监'}, {id: 4,name: 'CEO'}, {id: 5,name: '销售'}, 
+                          {id: 6,name: '实施'}, {id: 7,name: '程序员'}, {id: 8,name: 'UI工程师'}, {id: 9,name: '产品经理'}];
+        // 用户已选择的数组
+        const selectedRoleList = [{id: 2,name: '经理'}, {id: 3,name: '运营总监'}, {id: 6,name: '实施'}, {id: 7,name: '程序员'}, {id: 9,name: '产品经理'}];
+
+
+
+        function find_xing_yang(list) {
+            return list.filter(item => item.name.startsWith("杨"));
+        }
+
+        function find_have_tian(list) {
+            return list.filter(item => item.name.includes("天"));
+        }
+
+        function find_zhouzhiruo_id(list) {
+            return list.find(item => item.name === "周芷若").id;
+        }
+
+        function double_id_time(list) {
+            return list.map(item => {
+                return {
+                    ...item,
+                    id: item.id * 2,
+                    time: new Date().toLocaleTimeString()
+                }
+            });
+        }
+        function select_not_xuanze(roleList, selectedRoleList) {
+            return roleList.filter(role => !selectedRoleList.some(selected => selected.id === role.id));
+        }
+        
+        function selectedRoleList_id_list(selectedRoleList) {
+            return selectedRoleList.map(item => item.id);
+        }
+
+
+        let result = find_xing_yang(list);
+        console.log("姓杨")
+        console.log(result);
+        let result2 = find_have_tian(list);
+        console.log("有天")
+        console.log(result2);
+        let newlist = double_id_time(list);
+        console.log("id*2+time")
+        console.log(newlist);
+        let notSelected = select_not_xuanze(roleList, selectedRoleList);
+        console.log("未选中的id数组"+notSelected.map(item => item.id));
+        let selectedIds = selectedRoleList_id_list(selectedRoleList);
+        console.log("id数组"+selectedIds);
+
+    </script>
+</body>
+</html>
